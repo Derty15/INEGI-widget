@@ -14,7 +14,7 @@
   </style>
 </head>
 <body>
-  <div id="poblacion-inegi">Cargando población...</div>
+  <div id="poblacion-inegi">Cargando población con limitación en la actividad para escuchar...</div>
 
   <script>
   fetch("https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6200205260/es/0700/true/BISE/2.0/b55cfc56-efff-64fa-7ab0-88938cd3d197?type=json")
@@ -22,7 +22,7 @@
     .then(data => {
       const valor = data.Series[0].OBSERVATIONS[0].OBS_VALUE;
       document.getElementById("poblacion-inegi").innerText =
-        "Población total estimada en México: " + Number(valor).toLocaleString("es-MX");
+        "Población con limitación en la actividad para escuchar en México: " + Number(valor).toLocaleString("es-MX");
     })
     .catch(error => {
       document.getElementById("poblacion-inegi").innerText = "Error al cargar la información.";
