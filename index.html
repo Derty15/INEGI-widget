@@ -17,7 +17,7 @@
   <div id="poblacion-inegi">Cargando población...</div>
 
   <script>
-  fetch("https://www.inegi.org.mx/app/api/indicadores/desarrolladores/json/INDICADOR/6200042410/es/07000/false/BISE/?type=json&token=b55cfc56-efff-64fa-7ab0-88938cd3d197")
+  fetch("https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR/6200205260/es/0700/true/BISE/2.0/b55cfc56-efff-64fa-7ab0-88938cd3d197?type=json")
     .then(response => response.json())
     .then(data => {
       const valor = data.Series[0].OBSERVATIONS[0].OBS_VALUE;
