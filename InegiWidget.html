@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Indicador INEGI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      color: #333;
+      margin: 0;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="poblacion-inegi">Cargando población...</div>
+
+  <script>
+  fetch("https://www.inegi.org.mx/app/api/indicadores/desarrolladores/json/INDICADOR/6200042410/es/07000/false/BISE/?type=json&token=b55cfc56-efff-64fa-7ab0-88938cd3d197")
+    .then(response => response.json())
+    .then(data => {
+      const valor = data.Series[0].OBSERVATIONS[0].OBS_VALUE;
+      document.getElementById("poblacion-inegi").innerText =
+        "Población total estimada en México: " + Number(valor).toLocaleString("es-MX");
+    })
+    .catch(error => {
+      document.getElementById("poblacion-inegi").innerText = "Error al cargar la información.";
+    });
+  </script>
+</body>
+</html>
